@@ -10,7 +10,7 @@ import ProfileView from './components/profile-view';
 import './profile.css'; // 引入外部样式表
 
 interface UserProfile {
-  id: string;
+  id?: string;
   username: string;
   email: string;
   phone: string;
@@ -29,7 +29,6 @@ function Profile() {
   //   const { session } = useSessionContext();
 
   const [isEditing, setIsEditing] = useState(false);
-  const [editProfile, setEditProfile] = useState<UserProfile>(userProfile);
 
   // Step 3: get data from DID Spaces
   const fetchProfile = async () => {
@@ -58,26 +57,19 @@ function Profile() {
   const putProfile = (profile: UserProfile) => {
     return axios.put('/api/profile', profile);
   };
-  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setEditProfile({
-  //     ...editProfile,
-  //     [name]: value,
-  //   });
-  // };
 
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  const handleSave = async () => {
-    if (isEmpty(editProfile.username) || isEmpty(editProfile.email) || isEmpty(editProfile.phone)) {
+  const handleSave = async (profile: UserProfile) => {
+    if (isEmpty(profile.username) || isEmpty(profile.email) || isEmpty(profile.phone)) {
       return;
     }
     try {
       setLoading(true);
-      setUserProfile(editProfile);
-      await putProfile(editProfile);
+      setUserProfile(profile);
+      await putProfile({ ...profile, id: '1' });
       toast.success('Profile updated successfully');
     } catch (error) {
       console.error(error);
@@ -89,7 +81,6 @@ function Profile() {
   };
 
   const handleCancel = () => {
-    setEditProfile(userProfile);
     setIsEditing(false);
   };
 
