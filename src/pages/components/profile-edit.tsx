@@ -32,10 +32,13 @@ function ProfileEdit({ initialProfile, onSave, onCancel }: ProfileEditProps) {
         .required('Username is required'),
       email: Yup.string().email('Invalid email address').required('Email is required'),
       phone: Yup.string()
-        .matches(/^\d{3}-\d{3}-\d{4}$/, 'Phone number must be in the format xxx-xxx-xxxx')
+        .matches(
+          /^(\d{3}-\d{3}-\d{4}|\d{11})$/,
+          'Phone number must be in the format xxx-xxx-xxxx or an 11-digit Chinese phone number',
+        )
         .required('Phone number is required'),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values: { username: string; email: string; phone: string }) => {
       onSave(values);
     },
   });
@@ -54,6 +57,8 @@ function ProfileEdit({ initialProfile, onSave, onCancel }: ProfileEditProps) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.username}
+            maxLength={20}
+            minLength={3}
           />
         </div>
         {formik.touched.username && formik.errors.username ? (
