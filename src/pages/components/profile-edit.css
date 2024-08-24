@@ -17,3 +17,10 @@ input {
   font-size: 14px;
   margin-top: 4px;
 }
+@media (max-width: 600px) {
+  .label-input-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
