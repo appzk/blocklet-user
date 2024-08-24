@@ -1,0 +1,107 @@
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.profile-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  background: #f6f8fa;
+  padding: 10px;
+}
+
+.profile-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  margin-bottom: 16px;
+}
+
+.profile-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  flex-wrap: wrap;
+}
+
+.profile-field label {
+  margin-right: 10px;
+  min-width: 80px;
+  text-align: left;
+}
+
+.profile-field input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.profile-field span {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: left;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.profile-buttons button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.profile-buttons button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+  .profile-container {
+    padding: 15px;
+  }
+
+  .profile-field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .profile-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-buttons button {
+    width: 100%;
+  }
+}
