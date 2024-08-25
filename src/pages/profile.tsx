@@ -92,17 +92,20 @@ function Profile() {
   return (
     <div className="profile-container">
       <ToastContainer />
-      {isEditing ? (
-        <ProfileEdit initialProfile={userProfile} onSave={handleSave} onCancel={handleCancel} />
-      ) : (
-        <ProfileView
-          username={userProfile.username}
-          email={userProfile.email}
-          phone={userProfile.phone}
-          loading={loading}
-          onEdit={handleEdit}
-        />
-      )}
+      <div className="profile-app">
+        <h2>User Profile</h2>
+        {isEditing ? (
+          <ProfileEdit initialProfile={userProfile} onSave={handleSave} onCancel={handleCancel} />
+        ) : (
+          <ProfileView
+            username={userProfile.username}
+            email={userProfile.email}
+            phone={userProfile.phone}
+            loading={loading}
+            onEdit={handleEdit}
+          />
+        )}
+      </div>
     </div>
   );
 }
