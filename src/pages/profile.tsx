@@ -31,7 +31,7 @@ function Profile() {
 
   const [isEditing, setIsEditing] = useState(false);
 
-  // Step 3: get data from DID Spaces
+  // get data from API
   const fetchProfile = async () => {
     try {
       setLoading(true);
@@ -58,7 +58,7 @@ function Profile() {
     fetchProfile();
   }, []);
 
-  // Step 4: write data to DID Spaces
+  // write data to API
   const putProfile = (profile: UserProfile) => {
     return axios.put('/api/profile', profile);
   };
