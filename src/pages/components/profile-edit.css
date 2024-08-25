@@ -25,4 +25,7 @@ input {
     align-items: flex-start;
     gap: 5px;
   }
+  .error {
+    padding-left: 0px;
+  }
 }
