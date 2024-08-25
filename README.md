@@ -1,4 +1,5 @@
 # User Profile Project
+
 ## Overview
 This project is a basic user profile management system built with React and Express. The frontend allows users to view and edit their profile information, including their username, email, and phone number. The backend is powered by Express and uses SQLite for data persistence.
 
@@ -7,10 +8,13 @@ This project is a basic user profile management system built with React and Expr
 - Profile Edit: Allows users to edit and update their profile details.
 - Input Validation: Ensures that the input meets specific criteria (e.g., valid email, phone number formats).
 - Unit Testing: Comprehensive unit tests for both frontend and backend using Jest and Supertest.
+
 ## Tech Stack
+
 - Frontend: React, TypeScript, Formik, Yup
 - Backend: Express, TypeScript, SQLite3
 - Testing: Jest, React Testing Library, Supertest
+
 ## Prerequisites
 - Node.js (version 18.x or higher)
 - pnpm or npm or Yarn

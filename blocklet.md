@@ -1,4 +1,8 @@
-# todo-list-example
+# blocklet-user
+
+## Introduction
+
+This is a simple blocklet for user management. It provides a user registration and login function.
 
 ## How to start
 
@@ -13,15 +17,15 @@ pnpm install
 ### Start
 
 ```shell
-yarn dev
+pnpm dev
 ```
 
 ## How to connect with DID Spaces
 
-- Step 1: Set the 'capabilities.didSpace' field in blocklet.yml to 'requiredOnConnect', see 'blocklet.yml#capabilities'
-- Step 2: To read and write the DID Space, see api/src/routes/todo-list/index.ts#9
-- Step 3: Get data from DID Spaces, see 'src/pages/todo-list.tsx#33'
-- Step 4: Write data to DID Spaces, see 'src/pages/todo-list.tsx#51'
+- Step 1: Set the `capabilities.didSpace` field in blocklet.yml to `requiredOnConnect`, see `blocklet.yml#capabilities`
+- Step 2: To read and write the DID Space, see `api/src/routes/profile/index.ts#9`
+- Step 3: Get data from API, see `src/pages/profile.tsx#35`
+- Step 4: Write data to API, see `src/pages/profile.tsx#62`
 
 ## Get help
 
