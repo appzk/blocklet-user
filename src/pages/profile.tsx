@@ -10,16 +10,17 @@ import ProfileView from './components/profile-view';
 import './profile.css'; // 引入外部样式表
 
 interface UserProfile {
-  id?: string;
+  id?: number;
   username: string;
   email: string;
   phone: string;
 }
 
 function Profile() {
+  const defaultId = 1;
   // 假设初始用户数据
   const [userProfile, setUserProfile] = useState<UserProfile>({
-    id: '1',
+    id: defaultId,
     username: '',
     email: '',
     phone: '',
@@ -34,12 +35,16 @@ function Profile() {
   const fetchProfile = async () => {
     try {
       setLoading(true);
-      const response: AxiosResponse<{ profile: UserProfile }, any> = await axios.get('/api/profile');
+      const response: AxiosResponse<{ profile: UserProfile }, any> = await axios.get('/api/profile', {
+        params: {
+          id: defaultId, // 如果id不存在，则使用默认值defaultId
+        },
+      });
       setUserProfile(response.data.profile);
     } catch (error) {
       console.error(error);
       setUserProfile({
-        id: '1',
+        id: defaultId,
         username: '',
         email: '',
         phone: '',
@@ -69,7 +74,7 @@ function Profile() {
     try {
       setLoading(true);
       setUserProfile(profile);
-      await putProfile({ ...profile, id: '1' });
+      await putProfile({ ...profile, id: defaultId });
       toast.success('Profile updated successfully');
     } catch (error) {
       console.error(error);
